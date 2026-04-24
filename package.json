@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "backend:smoke": "node scripts/smoke-backend.mjs"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",

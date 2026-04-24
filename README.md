@@ -39,3 +39,14 @@ https://sal-tool-dashboard.vercel.app
 ## GitHub
 
 https://github.com/VortiMedia/sal-tool-dashboard
+
+## Working backend prototype
+
+This repo now includes a demo-safe actuarial backend layer, not just UI screens. Current endpoints:
+
+- `GET /api/v1/health` — engine status and route list
+- `GET|POST /api/v1/valuations/policy` — monthly survival curve, expected premium outflows, expected death benefit inflows, PV, expected IRR, max bid price, run diagnostics
+- `GET|POST /api/v1/simulations/portfolio` — deterministic seeded portfolio mortality simulation, IRR distribution, percentiles, CTE, negative IRR probability, liquidity shortfall probability
+- `GET|POST /api/v1/ae-analysis` — actual-to-expected mortality analysis with IBNR adjustment and cohort rows
+
+Important: this is still prototype/demo logic. It does not persist sensitive data, does not store real PII, and is not yet a production secure database/Rust engine.
