@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowsLeftRight, ChartScatter, Files, Gauge, Pulse, Stack } from "@phosphor-icons/react";
+import { ArrowsLeftRight, ChartLineUp, ChartScatter, Files, Gauge, Pulse, Stack, ShieldCheck } from "@phosphor-icons/react";
 
 const nav = [
   { href: "/", label: "Portfolio", icon: Gauge },
   { href: "/platform-1", label: "Policy", icon: Files },
   { href: "/platform-2", label: "Underwriting", icon: Pulse },
+  { href: "/simulation", label: "Simulation", icon: ChartLineUp },
+  { href: "/ae", label: "A/E", icon: ChartScatter },
+  { href: "/reporting", label: "Reporting", icon: ShieldCheck },
   { href: "/compare", label: "Compare", icon: ArrowsLeftRight },
-  { href: "/upload", label: "Upload", icon: ChartScatter },
+  { href: "/upload", label: "Upload", icon: Stack },
   { href: "/batch", label: "Batch", icon: Stack }
 ];
 

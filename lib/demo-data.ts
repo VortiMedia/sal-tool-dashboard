@@ -68,3 +68,29 @@ export const summary = {
   premiums: policies.reduce((sum, p) => sum + p.annualPremium, 0),
   face: policies.reduce((sum, p) => sum + p.faceValue, 0)
 };
+
+export const simulationSummary = {
+  meanIrr: 13.8,
+  medianIrr: 14.1,
+  cte5: -3.5,
+  negativeIrr: 7.0,
+  liquidityShortfall: 11.4,
+  percentiles: [
+    { label: "p01", value: -8.2, width: 14 },
+    { label: "p05", value: -3.5, width: 24 },
+    { label: "p10", value: 2.4, width: 34 },
+    { label: "p25", value: 8.9, width: 49 },
+    { label: "p50", value: 14.1, width: 63 },
+    { label: "p75", value: 18.7, width: 78 },
+    { label: "p90", value: 23.8, width: 90 },
+    { label: "p99", value: 31.4, width: 100 }
+  ]
+};
+
+export const aeRows = [
+  { cohort: "2022 vintage", duration1: "2", duration2: "3", duration3: "1", ae: "118%" },
+  { cohort: "2023 vintage", duration1: "1", duration2: "2", duration3: "—", ae: "104%" },
+  { cohort: "2024 vintage", duration1: "3", duration2: "—", duration3: "—", ae: "127%" },
+  { cohort: "High multiplier", duration1: "4", duration2: "2", duration3: "1", ae: "132%" },
+  { cohort: "Low multiplier", duration1: "1", duration2: "1", duration3: "0", ae: "82%" }
+];

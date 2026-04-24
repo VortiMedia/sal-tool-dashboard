@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ux_design_context version="1.0">
+  <company>
+    <name>Salabarria Capital</name>
+    <product_name>Life Settlement Actuarial Valuation and Portfolio Analytics Platform</product_name>
+    <design_system_name>Sal-Tool Decision System</design_system_name>
+    <blurb>Internal institutional command center for a life settlement investment fund. The product helps actuarial analysts and portfolio managers value policies, model premium obligations, simulate mortality outcomes, compare IRR distributions, monitor actual-to-expected mortality, and create auditable valuation/reporting packages.</blurb>
+    <audience>Actuarial analysts, portfolio managers, investment committee users, compliance/reporting users, data engineers, and PII-privileged administrators.</audience>
+    <not_investor_facing>true</not_investor_facing>
+  </company>
+
+  <product_principles>
+    <principle>Visual-first: every screen should show the decision before the table.</principle>
+    <principle>Institutional, not generic SaaS: dark financial command-center shell, dense metrics, strong hierarchy, no playful consumer styling.</principle>
+    <principle>Auditability is a UX feature: show assumption set, valuation run, random seed, ledger type, and engine version wherever outputs appear.</principle>
+    <principle>Privacy by design: insured PII must be segregated; analytics views use anonymized insured IDs only.</principle>
+    <principle>Mobile-friendly, but desktop-first for actual actuarial work. Mobile should support quick review, not full data entry.</principle>
+  </product_principles>
+
+  <brand_and_visual_language>
+    <tone>Quietly lethal institutional finance. Sharp, serious, premium, high-trust. Avoid cartoon fintech and template dashboard energy.</tone>
+    <palette>
+      <color role="background">#eeebe4</color>
+      <color role="ink">#111827</color>
+      <color role="sidebar_dark">#11151d</color>
+      <color role="panel">#fffdfa</color>
+      <color role="gold_accent">#c8a85d</color>
+      <color role="positive">#20c997</color>
+      <color role="warning">#f4b740</color>
+      <color role="danger">#ff6b6b</color>
+      <color role="analysis_blue">#77a7ff</color>
+    </palette>
+    <shape_language>
+      <corner_radius>Large rounded cards, usually 18px to 34px.</corner_radius>
+      <card_style>Warm ivory panels, low-contrast borders, soft shadows, dark chart frames.</card_style>
+      <density>High-density metrics with visual breathing room; fewer paragraphs, more decision objects.</density>
+    </shape_language>
+  </brand_and_visual_language>
+
+  <prototype_examples>
+    <example>
+      <name>Live Vercel prototype</name>
+      <url>https://sal-tool-dashboard.vercel.app</url>
+      <description>Current visual dashboard prototype with demo/anonymized data only.</description>
+    </example>
+    <example>
+      <name>GitHub repository</name>
+      <url>https://github.com/VortiMedia/sal-tool-dashboard</url>
+      <description>Next.js prototype source code and design context.</description>
+    </example>
+    <example>
+      <name>Portfolio Dashboard</name>
+      <route>/</route>
+      <description>Fund-level cockpit showing policies, score, IRR, LE deviation, recommendation mix, and highest-opportunity/highest-risk callouts.</description>
+    </example>
+    <example>
+      <name>Policy Intelligence</name>
+      <route>/platform-1</route>
+      <description>Policy-level valuation memo, BUY/REVIEW/PASS score, IRR, MOIC, premium burden, NLG, contestability, and risk flags.</description>
+    </example>
+    <example>
+      <name>Underwriting Intelligence</name>
+      <route>/platform-2</route>
+      <description>Life expectancy challenge view showing actuary LE vs platform-adjusted LE, mortality drivers, data quality, and investment impact.</description>
+    </example>
+    <example>
+      <name>Simulation Engine</name>
+      <route>/simulation</route>
+      <description>Monte Carlo / CTE view for IRR percentile fan, downside contributors, liquidity shortfall, and reproducible run metadata.</description>
+    </example>
+    <example>
+      <name>A/E Mortality Monitor</name>
+      <route>/ae</route>
+      <description>Actual-to-expected mortality dashboard with IBNR adjustment, exposure, expected deaths, actual deaths, and claims triangle.</description>
+    </example>
+    <example>
+      <name>Reporting Ledger</name>
+      <route>/reporting</route>
+      <description>Compliance and export queue showing economic/statutory ledgers, audit events, assumption sets, PII isolation, and report package status.</description>
+    </example>
+  </prototype_examples>
+
+  <core_metrics>
+    <metric>Policy Score</metric>
+    <metric>Expected IRR</metric>
+    <metric>Economic IRR</metric>
+    <metric>Adjusted Life Expectancy</metric>
+    <metric>LE Deviation versus actuary estimate</metric>
+    <metric>Present Value</metric>
+    <metric>Maximum Bid Price</metric>
+    <metric>MOIC</metric>
+    <metric>Expected Premium Outflow</metric>
+    <metric>Expected Death Benefit Inflow</metric>
+    <metric>Conditional Tail Expectation</metric>
+    <metric>Probability of Negative IRR</metric>
+    <metric>Liquidity Shortfall Probability</metric>
+    <metric>Actual-to-Expected Mortality Ratio</metric>
+    <metric>IBNR-adjusted A/E Ratio</metric>
+    <metric>Statutory Reserve Amount</metric>
+  </core_metrics>
+
+  <information_architecture>
+    <screen name="Dashboard">Fund and portfolio command center.</screen>
+    <screen name="Policy Detail">Policy valuation, premium schedule, survival curve, expected cash flows, audit history.</screen>
+    <screen name="Portfolio Analytics">IRR distributions, CTE, cash flow projections, liquidity stress, cohort segmentation.</screen>
+    <screen name="A/E Analysis">Expected vs actual deaths, claims triangles, vintage/duration/impairment segmentation.</screen>
+    <screen name="Regulatory Reporting">Economic/statutory ledger separation, reserve reporting, AoVR-ready exports, audit approval.</screen>
+    <screen name="Upload/Ingestion">Policy PDFs, premium schedules, LE reports, medical record packets, anonymization and validation pipeline.</screen>
+  </information_architecture>
+
+  <technical_notes>
+    <note>Prototype is Next.js with static demo data; no real PII, no sensitive medical records, no production database.</note>
+    <note>Production target is Python for orchestration/API/reporting plus Rust for mortality curves, cash-flow projection, IRR, and Monte Carlo kernels.</note>
+    <note>Production storage should be PostgreSQL with temporal versioning, immutable valuation runs, assumption set history, premium schedule versions, and segregated PII domain.</note>
+    <note>Every production valuation must be reproducible from valuation_run_id, assumption_set_id, mortality table version, premium schedule version, input snapshot, random seed, and engine version.</note>
+    <note>Do not expose insured PII to simulation engines, LLMs, investor reports, or general analytics screens.</note>
+  </technical_notes>
+</ux_design_context>
